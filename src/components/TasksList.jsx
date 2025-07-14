@@ -1,9 +1,18 @@
-import React from 'react'
+import React from "react";
+import Task from "./Task";
 
-const TasksList = () => {
+const TasksList = ({ tasks , removeTask}) => {
   return (
-    <div>TasksList</div>
-  )
-}
+    <>
+      <div>
+        Task Lists (Total - {tasks.length}, Done - 
+        {tasks.filter((task) => task.isComplete).length})
+      </div>
+      {tasks.map((task) => {
+        return <Task key={task.id} job={task} removeTask={removeTask} />;
+      })}
+    </>
+  );
+};
 
-export default TasksList
+export default TasksList;
