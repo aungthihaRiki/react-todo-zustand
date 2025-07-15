@@ -48,16 +48,16 @@ const App = () => {
 
   return (
     <>
-      {/* <Container>
-        <TaskProvider>
+      <Container>
+        {/* <TaskProvider> */}
           <Home />
           <CreateTask/>
           <TasksList       
             
           />
-        </TaskProvider>
-      </Container> */}
-      <Counter/>
+        {/* </TaskProvider> */}
+      </Container>
+      {/* <Counter/> */}
     </>
   );
 };

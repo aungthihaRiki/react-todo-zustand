@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import Task from "./Task";
-import TaskContext from "../context/TaskContext";
+// import TaskContext from "../context/TaskContext";
+import useTaskStore from "../store/useTaskStore";
 
 const TasksList = () => {
-  const { tasks } = useContext(TaskContext);
-
+  // const { tasks } = useContext(TaskContext);
+  const { tasks } = useTaskStore();
+  console.table(tasks);
   return (
     <>
       <div>
