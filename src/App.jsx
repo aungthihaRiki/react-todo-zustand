@@ -36,12 +36,24 @@ const App = () => {
     setTasks(tasks.filter((x) => x.id !== id));
   };
 
+  const completeTask = (id) => {
+    setTasks(
+      tasks.map((x) =>
+        x.id === id ? { ...x, isCompleted: !x.isCompleted } : x
+      )
+    );
+  };
+
   return (
     <>
       <Container>
         <Home />
         <CreateTask addNewTask={addNewTask} />
-        <TasksList tasks={tasks} removeTask={removeTask} />
+        <TasksList
+          tasks={tasks}
+          removeTask={removeTask}
+          completeTask={completeTask}
+        />
       </Container>
     </>
   );
