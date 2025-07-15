@@ -4,6 +4,7 @@ import CreateTask from "./components/CreateTask";
 import TasksList from "./components/TasksList";
 import Container from "./components/Container";
 import TaskProvider from "./context/TaskProvider";
+import Counter from "./components/Counter";
 
 const App = () => {
   const [tasks, setTasks] = useState([
@@ -47,7 +48,7 @@ const App = () => {
 
   return (
     <>
-      <Container>
+      {/* <Container>
         <TaskProvider>
           <Home />
           <CreateTask/>
@@ -55,7 +56,8 @@ const App = () => {
             
           />
         </TaskProvider>
-      </Container>
+      </Container> */}
+      <Counter/>
     </>
   );
 };
