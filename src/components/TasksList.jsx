@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import Task from "./Task";
+import TaskContext from "../context/TaskContext";
 
-const TasksList = ({ tasks , removeTask, completeTask}) => {
+const TasksList = () => {
+  const { tasks } = useContext(TaskContext);
+
   return (
     <>
       <div>
-        Task Lists (Total - {tasks.length}, Done - 
+        Task Lists (Total - {tasks.length}, Done -
         {tasks.filter((task) => task.isCompleted).length})
       </div>
       {tasks.map((task) => {
-        return <Task key={task.id} job={task} removeTask={removeTask} completeTask={completeTask}/>;
+        return (
+          <Task
+            key={task.id}
+            job={task}
+          />
+        );
       })}
     </>
   );

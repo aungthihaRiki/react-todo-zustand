@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
+import TaskContext from "../context/TaskContext";
 
-const CreateTask = ({addNewTask}) => {
+const CreateTask = () => {
+  const { addNewTask } = useContext(TaskContext)
+
   const [taskName, setTaskName] = useState("");
 
   const handleOnChange = (event) => {

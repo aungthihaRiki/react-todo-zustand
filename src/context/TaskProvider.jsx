@@ -1,11 +1,7 @@
 import React, { useState } from "react";
-import Home from "./components/Home";
-import CreateTask from "./components/CreateTask";
-import TasksList from "./components/TasksList";
-import Container from "./components/Container";
-import TaskProvider from "./context/TaskProvider";
+import TaskContext  from "./TaskContext.js";
 
-const App = () => {
+function TaskProvider({ children }) {
   const [tasks, setTasks] = useState([
     {
       id: "task001",
@@ -44,20 +40,13 @@ const App = () => {
       )
     );
   };
-
   return (
-    <>
-      <Container>
-        <TaskProvider>
-          <Home />
-          <CreateTask/>
-          <TasksList       
-            
-          />
-        </TaskProvider>
-      </Container>
-    </>
+    <TaskContext.Provider
+      value={{ tasks, addNewTask, removeTask, completeTask }}
+    >
+      {children}
+    </TaskContext.Provider>
   );
-};
+}
 
-export default App;
+export default TaskProvider;
